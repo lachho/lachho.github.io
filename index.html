@@ -1,37 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="./index.css">
-    <script src="./index.js" defer></script>
-  </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lachlan Ho | Software Developer</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
 <body>
-  <div class="container">
-    <h1>Welcome to my page!</h1>
-    <p >
-        Hi, I'm Lachlan, a computer science/civil engineering undegraduate at UNSW. 
-
-        Click below to check out some of my work
-    </p>
-    <div class="action">
-        <a href="https://lachho.github.io/colourify/">
-            <button>Colourify</button>
-          </a>
-        <a href="https://www.linkedin.com/in/lachlanho/">
-            <button>Wacky Sign Up form</button>
-          </a>
-    </div>
-
-
-    <div class="action">
-        <a href="https://www.linkedin.com/in/lachlanho/">
-            <button>Find me on LinkedIn!</button>
-          </a>
-    </div>
-
-    <!-- You can add JavaScript code here if needed -->
+  <div class="action">
   </div>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content">
+      <section id="hero">
+          <div class="hero-content">
+            <div class="hero-text">
+              <h1>Ho ho ho! I'm Lachlan Ho
+                <img src="assets/icons/santa1.png" alt="santa">
+              </h1>
+              <p>Software Developer skilled in Node.js, Python, and Java.</p>
+              <div class="links">
+                <a href="https://www.linkedin.com/in/lachlanho/" target="_blank" rel="noopener noreferrer" class="btn tooltip">
+                  <img src="assets/icons/linkedin1.png" alt="LinkedIn">
+                  <span class="tooltiptext">LinkedIn</span>
+                </a>
+                <a href="mailto:lachlan.ho@gmail.com" class="btn tooltip">
+                  <img src="assets/icons/email2.png" alt="Email">
+                  <span class="tooltiptext">Email</span>
+                </a>
+                <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn tooltip">
+                  <img src="assets/icons/resume.png" alt="Resume">
+                  <span class="tooltiptext">Resume</span>
+                </a>
+                <a href="https://github.com/lachho/" target="_blank" rel="noopener noreferrer" class="btn tooltip">
+                  <img src="assets/icons/github.png" alt="GitHub">
+                  <span class="tooltiptext">GitHub</span>
+                </a>
+                <a href="#projects" class="btn tooltip">
+                  <img src="assets/icons/code.png" alt="Projects">
+                  <span class="tooltiptext">Projects</span>
+                </a>                
+            </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/images/Mugshot18.jpg" alt="Mugshot">
+            </div>
+          </div>
+      </section>
+      <div id="particles-js"></div>
+  </main>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a developer with a focus on creating innovative solutions.</p>
+    <p>I;m big on fitness too! When I'm not coding, you'll find me boulderng, at the gym or in the great outdoors</p>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project">
+        <h3>Project 1</h3>
+        <p>Description of project 1.</p>
+        <a href="https://lachho.github.io/colourify/">
+          <button>Colourify</button>
+        </a>
+    </div>
+    <div class="project">
+        <h3>Project 2</h3>
+        <p>Description of project 2.</p>
+    </div>
+    <div class="project">
+      <h3>User Authentication API</h3>
+      <p>JWT-based authentication system with role-based access control. see demo below</p>
+      <pre><code>GET https://api.example.com/users</code></pre>
+      <a href="https://github.com/lachho/auth-api">View on GitHub</a>
+    </div>
+  </section>
+
+  <section id="lessons">
+    <h2>What I've Learnt</h2>
+    <div class="lessons">
+      <h3>Technical Blog 1</h3>
+      <p>write about optimisation, database design, case studies</p>
+      <a href="https://lachho.github.io/colourify/">
+        <button>Colourify</button>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form action="#" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Lachlan Ho</p>
+  </footer>
 </body>
 </html>
