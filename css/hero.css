@@ -1,80 +1,34 @@
-html {
-  scroll-behavior: smooth !important;;
-}
+@import url('global.css');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-:root {
-  --text-color: #dcdcdc;
-  --background-color: #1a1a1b;
-  --primary-color: #000929;
-  --accent-color: #001eff;
-  --button-color: #0099ff;
-}
-
-header {
-    background-color: var(--background-color);
-    padding: 1.5rem;
-    text-align: center;
-    z-index: 10;
-}
-
-ul {
-    list-style: none;
-}
-
-ul li {
-    display: inline;
-    margin-right: 5rem;
-}
-
-ul li a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-h1, h2, h3, p {
-    color: var(--text-color);
-}
-
-h1 img {
-  width: 25px;
-}
-
-/* Hero Section */
 #hero {
   background-color: var(--primary-color);
-  height: 100vh;
+  height: 92vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10vw;
+  width: 100vw;
 }
 
 .hero-content {
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: left;
-  max-width: 80vw;
-  gap: 50px;
+  gap: 5vw;
 }
 
 .hero-text {
-  flex: 2; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 70%;
 }
 
+
 .hero-image {
-  flex: 1;
   display: flex;
   justify-content: center;
   z-index: 10;
+  max-width: 30%;
 }
 
 .hero-image img {
@@ -110,8 +64,9 @@ h1 img {
 }
 
 .btn:hover {
-    background-color: var(--text-color);
-    transform: scale(1.15);
+  background-color: var(--text-color);
+  transform: scale(1.15);
+  color: var(--primary-color);
 }
 
 .tooltip {
@@ -163,46 +118,3 @@ h1 img {
     opacity: 0;
   }
 } 
-
-/* About and Projects Sections */
-section {
-  background-color: var(--background-color);
-  padding: 3rem 2rem;
-  text-align: center;
-}
-
-.project {
-  border: 1px solid var(--text-color);
-  margin-bottom: 2rem;
-  padding: 1rem;
-}
-
-.project h3 {
-  margin-bottom: 0.5rem;
-}
-
-/* Contact Form */
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-form label {
-  margin: 10px 0 5px;
-}
-
-form input, form textarea {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-footer {
-    background-color: var(--background-color);
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-}

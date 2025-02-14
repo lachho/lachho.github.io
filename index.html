@@ -4,31 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lachlan Ho | Software Developer</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header.css">
   <script src="js/script.js" defer></script>
 </head>
 <body>
   <div class="action">
   </div>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
+  
   <main class="content">
-      <section id="hero">
+    <section id="hero">
           <div class="hero-content">
             <div class="hero-text">
               <h1>Ho ho ho! I'm Lachlan Ho
                 <img src="assets/icons/santa1.png" alt="santa">
               </h1>
-              <p>Software Developer skilled in Node.js, Python, and Java.</p>
+              <p>I'm a Software Developer skilled in Java, Python, and Node.js, with a passion for creating innovative 
+                solutions. Check out my links below:</p>
               <div class="links">
                 <a href="https://www.linkedin.com/in/lachlanho/" target="_blank" rel="noopener noreferrer" class="btn tooltip">
                   <img src="assets/icons/linkedin1.png" alt="LinkedIn">
@@ -50,64 +44,125 @@
                   <img src="assets/icons/code.png" alt="Projects">
                   <span class="tooltiptext">Projects</span>
                 </a>                
-            </div>
+              </div>
             </div>
             <div class="hero-image">
-                <img src="assets/images/Mugshot18.jpg" alt="Mugshot">
+              <img src="assets/images/Mugshot18.jpg" alt="Mugshot">
             </div>
           </div>
       </section>
       <div id="particles-js"></div>
-  </main>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I am a developer with a focus on creating innovative solutions.</p>
-    <p>I;m big on fitness too! When I'm not coding, you'll find me boulderng, at the gym or in the great outdoors</p>
+    </main>
+    
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <!-- <li><a href="#skills">Skills</a></li> -->
+        </ul>
+      </nav>
+    </header>
+    
+    <section id="about" class="section reveal-on-scroll" >
+      <h2>About Me</h2>
+    <p>
+      I'm a final-year Computer Science and Civil Engineering student at UNSW, passionate about 
+      <strong>software development, problem-solving, and automation</strong>. My experience bridges both engineering 
+      and technology, with a focus on creating innovative solutions.
+    </p>
+    <p>
+      At Mott MacDonald, I worked on <strong>digital modeling, automation, and 
+      project coordination</strong>, optimizing workflows and ensuring quality in engineering designs.
+    </p>
+    <p>
+      Through university projects, I've gained hands-on experience in 
+      <strong>full-stack development (React, Flask, Python), object-oriented programming, and data analysis</strong>. 
+    </p>
+    <p>
+      I love tackling complex challenges, whether its in front of the IDE, in the meeting room with my team, 
+      or at the bouldering gym. When I'm not coding, you'll find me bouldering, at the gym, or hiking 
+      through the outdoors. Let's connect—I'd love to bring my skills and passion to your team!
+    </p>
   </section>
 
-  <section id="projects">
-    <h2>My Projects</h2>
-    <div class="project">
-        <h3>Project 1</h3>
-        <p>Description of project 1.</p>
-        <a href="https://lachho.github.io/colourify/">
-          <button>Colourify</button>
+
+  <section id="projects" class="section reveal-on-scroll">
+    <h2>Featured Projects</h2>
+    <div class="project-container">
+
+      <div class="project">
+        <h3>My Portfolio</h3>
+        <a href="https://lachho.github.io" target="_blank">
+          <img src="assets/images/portfolio.png" alt="my project" class="image">
         </a>
-    </div>
-    <div class="project">
-        <h3>Project 2</h3>
-        <p>Description of project 2.</p>
-    </div>
-    <div class="project">
-      <h3>User Authentication API</h3>
-      <p>JWT-based authentication system with role-based access control. see demo below</p>
-      <pre><code>GET https://api.example.com/users</code></pre>
-      <a href="https://github.com/lachho/auth-api">View on GitHub</a>
+        <p>My portfolio website showcases my skills, projects and experience. Its a summary of what I've learnt over 
+          the years as a developer. I utilised HTML, CSS and JavaScript to apply my frontend skills and show off my 
+          personality.
+        </p>
+        <a href="https://github.com/lachho/lachho.github.io" target="_blank" class="btn">
+          GitHub
+        </a>
+      </div>
+      <div class="project">
+        <h3>Cantonese Translator</h3>
+        <img src="assets/images/canto.png" alt="canto" class="image">
+        <p>I created this full stack application to help myself and friends study and learn my heritage language 
+          cantonese. It utilises React and Node.js manage a cloud database, allowing us to expand the dictionary and 
+          search for translations seamlessly.
+        </p>
+        <a href="https://github.com/lachho/canto" target="_blank" class="btn">GitHub</a>
+      </div>
+      <div class="project">
+        <h3>Covid-19 Simulation Model  </h3>
+        <img src="assets/images/covid.png" alt="covid" class="image">
+        <p>Capstone university project with a group of 5. We developed a data visualisation dashboard to model the 
+          interplay of different covid-19 variants in Australia. The model was able to analyse existing data to model 
+          future outbreaks and spread. Key technologgies: Flask (Python), React (JavaScript), PostgreSQL. </p>
+        <a href="https://github.com/unsw-cse-comp99-3900/capstone-project-3900w13azuckerberg" target="_blank" class="btn">GitHub</a>
+      </div>
+      <div class="project">
+        <h3>Dungeon RPG</h3>
+        <img src="assets/images/rpg.png" alt="rpg" class="image">
+        <p>I helped develop the backend for a playable top down RPG game writing using Java. Extensive use of design 
+          patterns and strong focus on object oriented design principles was the core of this university project. 
+        </p>
+        <a href="https://github.com/lachho/dungeon-rpg" target="_blank" class="btn">GitHub</a>
+      </div>
+  
+      <div class="project">
+        <h3>Satellite Simulation</h3>
+        <img src="assets/images/satellite.png" alt="satellite" class="image">
+        <p>Another class project in Java. This project simulated satellites orbit and data transfer between devices. 
+          Strong coding practices were developed from this project. 
+        </p>
+        <a href="https://github.com/lachho/satellite" target="_blank" class="btn">GitHub</a>
+      </div>
+  
+      <div class="project">
+        <h3>Encryption Tool</h3>
+        <img src="assets/images/cmd.png" alt="cmd" class="image">
+        <p>I developed this tool to show case various types of file encryption/decryption. This app also replicates a 
+          basic set of command-line utilities. Written in C.</p>
+        <a href="https://github.com/lachho/file-decryptor" target="_blank" class="btn">GitHub</a>
+      </div>
     </div>
   </section>
 
-  <section id="lessons">
+  <!-- <section id="lessons" class="section reveal-on-scroll">
     <h2>What I've Learnt</h2>
     <div class="lessons">
       <h3>Technical Blog 1</h3>
       <p>write about optimisation, database design, case studies</p>
       <a href="https://lachho.github.io/colourify/">
         <button>Colourify</button>
-  </section>
+      </a> 
+  </section> -->
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <form action="#" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-  </section>
+  <!-- <section id="skills" class="section reveal-on-scroll">
+    <h2>My Skills</h2>
+  </section> -->
 
   <footer>
     <p>&copy; 2025 Lachlan Ho</p>

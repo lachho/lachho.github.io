@@ -35,3 +35,24 @@ document.addEventListener('DOMContentLoaded', () => {
   requestAnimationFrame(createParticle);
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  const sections = document.querySelectorAll(".reveal-on-scroll");
+
+  function revealSections() {
+      sections.forEach(section => {
+          const sectionPos = section.getBoundingClientRect().top;
+          const screenHeight = window.innerHeight;
+
+          if (sectionPos < screenHeight * 0.85) {
+              section.classList.add("reveal");
+          } else {
+              section.classList.remove("reveal");
+          }
+      });
+  }
+
+  window.addEventListener("scroll", revealSections);
+  revealSections();
+});
+
+

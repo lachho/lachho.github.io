@@ -1,0 +1,59 @@
+html {
+  scroll-behavior: smooth !important;
+  overflow-x: hidden; 
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  justify-self: center;
+}
+
+body {
+  background-color: var(--background-color);
+  
+}
+
+:root {
+  --text-color: #dcdcdc;
+  --background-color: #1a1a1b;
+  --primary-color: #000929;
+  --accent-color: #001eff;
+  --button-color: #0099ff;
+}
+
+.section {
+  padding: 3rem 2rem;
+  text-align: left;
+  opacity: 1;  
+  max-width: 70%;
+
+}
+
+h1, h2, h3, p {
+  color: var(--text-color);
+}
+
+h1 img {
+  width: 25px;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0 auto 20px;
+}

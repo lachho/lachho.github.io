@@ -1,0 +1,47 @@
+@import url('global.css');
+
+.reveal {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.project-container {
+  column-count: 3;
+  column-gap: 15px;
+}
+
+
+.project {
+  background-color: var(--primary-color);
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  width: 100%;
+  display: inline-block; 
+}
+
+@media (max-width: 768px) {
+  .project-container {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-container {
+    column-count: 1;
+  }
+}
+
+.project:hover {
+  transform: scale(1.05);
+}
+
+.image {
+  width: 100%;
+}
