@@ -38,7 +38,11 @@ const Navigation = () => {
             to="/" 
             className="text-xl font-bold text-blue-600 hover:text-blue-800 transition-colours"
           >
-            Career Compass
+            <img 
+              src="/logo.png" 
+              alt="Career Compass Logo" 
+              className="h-8 w-auto" 
+            />
           </Link>
 
           {/* Desktop Navigation */}
