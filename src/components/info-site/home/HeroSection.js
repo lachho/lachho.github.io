@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 const HeroSection = ({ onExploreClick }) => {
   return (
-    <section className="h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-purple-600 text-white flex items-center justify-center w-full">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-5xl md:text-7xl font-extrabold mb-6">
+    <section className="h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-purple-600 text-white flex items-center justify-center w-full pb-20 sm:pb-32">
+      <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
+        <h1 className="text-5xl md:text-7xl font-extrabold mb-6 text-white">
           Career Compass
         </h1>
-        <h2 className="text-2xl md:text-4xl font-bold mb-6">
+        <h2 className="text-2xl md:text-4xl font-bold mb-6 text-white">
           Your Blueprint for Graduate Success
         </h2>
         <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">

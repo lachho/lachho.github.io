@@ -32,16 +32,16 @@ const Navigation = () => {
     // The navigation bar now has a single, consistent style
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-18">
           {/* Logo/Brand */}
           <Link 
             to="/" 
             className="text-xl font-bold text-blue-600 hover:text-blue-800 transition-colours"
           >
             <img 
-              src="/logo.png" 
+              src="/logo-black.png" 
               alt="Career Compass Logo" 
-              className="h-8 w-auto" 
+              className="h-16 w-auto" 
             />
           </Link>
 
@@ -54,7 +54,7 @@ const Navigation = () => {
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colours ${
                   location.pathname === '/'
                     ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600'
+                    : 'text-gray-700 hover:text-blue-600 hover:bg-white'
                 }`}
               >
                 Home
@@ -67,7 +67,7 @@ const Navigation = () => {
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colours flex items-center ${
                     location.pathname.startsWith('/articles')
                       ? 'text-blue-600 bg-blue-50'
-                      : 'text-gray-700 hover:text-blue-600'
+                      : 'text-gray-700 hover:text-blue-600 hover:bg-white'
                   }`}
                 >
                   Articles
@@ -97,8 +97,8 @@ const Navigation = () => {
                 to="/about"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colours ${
                   location.pathname === '/about'
-                    ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600'
+                    ? 'text-blue-600 bg-blue-50 '
+                    : 'text-gray-700 hover:text-blue-600 hover:bg-white'
                 }`}
               >
                 About
@@ -108,7 +108,7 @@ const Navigation = () => {
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colours ${
                   location.pathname === '/resume-analyser'
                     ? 'text-blue-600 bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600'
+                    : 'text-gray-700 hover:text-blue-600 hover:bg-white'
                 }`}
               >
                 Resume Analyser
