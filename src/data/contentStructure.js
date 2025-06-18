@@ -14,21 +14,21 @@ export const contentStructure = {
             title: 'Effective Resume Formats',
             summary: 'Discover the best resume formats for different industries and career levels',
             file: 'career-guidance/resume-writing/effective-resume-formats.md',
-            tags: ['format', 'structure', 'beginner']
+            tags: ['CV Writing', 'format', 'structure', 'beginner']
           },
           {
             id: 'action-verbs-guide',
             title: 'Power Action Verbs for Resumes',
             summary: 'Transform your resume with impactful action verbs that grab attention',
             file: 'career-guidance/resume-writing/action-verbs-guide.md',
-            tags: ['writing', 'language', 'impact']
+            tags: ['CV Writing', 'writing', 'language', 'impact']
           },
           {
             id: 'quantifying-achievements',
             title: 'Quantifying Your Achievements',
             summary: 'Learn how to measure and present your accomplishments effectively',
             file: 'career-guidance/resume-writing/quantifying-achievements.md',
-            tags: ['metrics', 'achievements', 'data']
+            tags: ['CV Writing', 'metrics', 'achievements', 'data']
           }
         ]
       },
@@ -41,14 +41,21 @@ export const contentStructure = {
             title: 'Common Interview Questions & Answers',
             summary: 'Prepare for the most frequently asked interview questions',
             file: 'career-guidance/interview-preparation/common-interview-questions.md',
-            tags: ['questions', 'preparation', 'answers']
+            tags: ['Interview Tips', 'questions', 'preparation', 'answers']
           },
           {
             id: 'behavioural-interviews',
             title: 'Mastering Behavioural Interviews',
             summary: 'Use the STAR method to excel in behavioural interviews',
             file: 'career-guidance/interview-preparation/behavioural-interviews.md',
-            tags: ['behavioural', 'STAR', 'storytelling']
+            tags: ['Interview Tips', 'behavioural', 'STAR', 'storytelling']
+          },
+          {
+            id: 'networking-strategies',
+            title: 'Professional Networking Strategies',
+            summary: 'Build meaningful professional relationships that advance your career',
+            file: 'career-guidance/interview-preparation/networking-strategies.md',
+            tags: ['Networking', 'relationships', 'career', 'professional']
           }
         ]
       }
@@ -68,14 +75,14 @@ export const contentStructure = {
             title: 'Essential Tech Skills for 2024',
             summary: 'Stay ahead with the most in-demand technical skills',
             file: 'industry-insights/technology/tech-skills-2024.md',
-            tags: ['skills', 'technology', 'trends']
+            tags: ['Technology', 'Skills', 'trends', 'programming']
           },
           {
             id: 'remote-work-best-practices',
             title: 'Remote Work Best Practices',
             summary: 'Master the art of working effectively from home',
             file: 'industry-insights/technology/remote-work-best-practices.md',
-            tags: ['remote', 'productivity', 'communication']
+            tags: ['Technology', 'remote', 'productivity', 'communication']
           }
         ]
       },
@@ -88,7 +95,14 @@ export const contentStructure = {
             title: 'Finance Career Paths Explained',
             summary: 'Explore different career opportunities in the finance industry',
             file: 'industry-insights/finance/finance-career-paths.md',
-            tags: ['careers', 'finance', 'pathways']
+            tags: ['Finance', 'careers', 'pathways', 'banking']
+          },
+          {
+            id: 'fintech-revolution',
+            title: 'The FinTech Revolution: Career Opportunities',
+            summary: 'Discover emerging roles at the intersection of finance and technology',
+            file: 'industry-insights/finance/fintech-revolution.md',
+            tags: ['Finance', 'Technology', 'fintech', 'innovation']
           }
         ]
       }
@@ -108,14 +122,21 @@ export const contentStructure = {
             title: 'The Importance of Soft Skills',
             summary: 'Why emotional intelligence and communication matter in your career',
             file: 'professional-development/skills-development/soft-skills-importance.md',
-            tags: ['soft-skills', 'communication', 'leadership']
+            tags: ['Skills', 'soft-skills', 'communication', 'leadership']
           },
           {
             id: 'continuous-learning',
             title: 'Continuous Learning Strategies',
             summary: 'Stay relevant in your field through lifelong learning',
             file: 'professional-development/skills-development/continuous-learning.md',
-            tags: ['learning', 'development', 'growth']
+            tags: ['Skills', 'learning', 'development', 'growth']
+          },
+          {
+            id: 'networking-for-introverts',
+            title: 'Networking Strategies for Introverts',
+            summary: 'Build professional networks without draining your energy',
+            file: 'professional-development/skills-development/networking-for-introverts.md',
+            tags: ['Networking', 'introverts', 'strategies', 'professional']
           }
         ]
       }
@@ -136,7 +157,7 @@ export const getAllArticles = () => {
           categoryTitle: category.title,
           subcategory: subcategoryKey,
           subcategoryTitle: subcategory.title,
-          path: `/content/${categoryKey}/${subcategoryKey}/${article.id}`
+          path: `/articles/${categoryKey}/${subcategoryKey}/${article.id}`
         });
       });
     });
@@ -148,19 +169,19 @@ export const getAllArticles = () => {
 // Get breadcrumb navigation for a content path
 export const getBreadcrumbs = (categoryKey, subcategoryKey, articleId) => {
   const breadcrumbs = [
-    { title: 'Home', path: '/' }
+    { title: 'Articles', path: '/articles' }
   ];
   
   if (categoryKey && contentStructure[categoryKey]) {
     breadcrumbs.push({
       title: contentStructure[categoryKey].title,
-      path: `/content/${categoryKey}`
+      path: `/articles/${categoryKey}`
     });
     
     if (subcategoryKey && contentStructure[categoryKey].subcategories[subcategoryKey]) {
       breadcrumbs.push({
         title: contentStructure[categoryKey].subcategories[subcategoryKey].title,
-        path: `/content/${categoryKey}/${subcategoryKey}`
+        path: `/articles/${categoryKey}/${subcategoryKey}`
       });
       
       if (articleId) {
@@ -169,7 +190,7 @@ export const getBreadcrumbs = (categoryKey, subcategoryKey, articleId) => {
         if (article) {
           breadcrumbs.push({
             title: article.title,
-            path: `/content/${categoryKey}/${subcategoryKey}/${articleId}`
+            path: `/articles/${categoryKey}/${subcategoryKey}/${articleId}`
           });
         }
       }
@@ -177,4 +198,20 @@ export const getBreadcrumbs = (categoryKey, subcategoryKey, articleId) => {
   }
   
   return breadcrumbs;
+};
+
+// Add featured articles functionality
+export const getFeaturedArticles = () => {
+  const allArticles = getAllArticles();
+  // For now, return the first 3 articles as featured
+  // In the future, you could add a 'featured' property to articles
+  return allArticles.slice(0, 3);
+};
+
+// Add recent articles functionality (sorted by a date field when available)
+export const getRecentArticles = (limit = 6) => {
+  const allArticles = getAllArticles();
+  // For now, return the first articles as "recent"
+  // In the future, you could add a 'datePublished' field and sort by it
+  return allArticles.slice(0, limit);
 }; 

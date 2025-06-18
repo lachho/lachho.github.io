@@ -14,7 +14,7 @@ body {
 }
 
 #root {
-  padding: 2rem;
+  /* Remove padding since we're using fixed navigation */
 }
 
 h1, h2, h3 {
@@ -190,4 +190,243 @@ mark {
   transition-property: color, background-color, border-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mobile responsive layout improvements */
+@media (max-width: 1024px) {
+  /* Hide sidebar on mobile and tablet */
+  .sidebar-hidden {
+    display: none !important;
+  }
+  
+  /* Remove left margin on smaller screens */
+  .content-centered {
+    margin-left: 0 !important;
+  }
+}
+
+/* Mobile navigation overlay */
+.mobile-nav-overlay {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Enhanced hover effects for interactive elements */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Tag filter animations */
+.tag-filter {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tag-filter:hover {
+  transform: scale(1.05);
+}
+
+.tag-filter.active {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Search result highlighting improvements */
+.search-highlight {
+  background: linear-gradient(120deg, #fef3c7 0%, #fde68a 100%);
+  padding: 0 2px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+/* Loading state animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Staggered animation for content grids */
+.stagger-children > * {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Hero section gradient animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(-45deg, #3b82f6, #6366f1, #8b5cf6, #a855f7);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Sidebar navigation enhancements */
+.sidebar-nav {
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Content discovery hub animations */
+.content-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Button press effects */
+.btn-press {
+  transition: transform 0.1s ease;
+}
+
+.btn-press:active {
+  transform: scale(0.98);
+}
+
+/* Focus improvements for accessibility */
+.focus-ring:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Content page typography improvements */
+.content-typography h1 {
+  @apply text-4xl font-bold text-gray-900 mb-6;
+}
+
+.content-typography h2 {
+  @apply text-3xl font-semibold text-gray-800 mb-4 mt-8;
+}
+
+.content-typography h3 {
+  @apply text-2xl font-semibold text-gray-800 mb-3 mt-6;
+}
+
+.content-typography p {
+  @apply text-gray-700 leading-relaxed mb-4;
+}
+
+.content-typography ul, .content-typography ol {
+  @apply text-gray-700 mb-4 ml-6;
+}
+
+.content-typography li {
+  @apply mb-2;
+}
+
+.content-typography blockquote {
+  @apply border-l-4 border-blue-500 pl-4 italic text-gray-600 my-6;
+}
+
+.content-typography code {
+  @apply bg-gray-100 px-2 py-1 rounded text-sm font-mono;
+}
+
+.content-typography pre {
+  @apply bg-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+.content-typography pre code {
+  @apply bg-transparent p-0;
+}
+
+/* Responsive pagination styles */
+.pagination-container {
+  @apply flex flex-wrap justify-center items-center gap-2;
+}
+
+@media (max-width: 640px) {
+  .pagination-container {
+    @apply gap-1;
+  }
+  
+  .pagination-container button {
+    @apply px-3 py-2 text-sm;
+  }
+}
+
+/* Mobile-first responsive improvements */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    @apply text-4xl;
+  }
+  
+  .hero-section h2 {
+    @apply text-xl;
+  }
+  
+  .hero-section p {
+    @apply text-lg;
+  }
+  
+  /* Mobile card adjustments */
+  .content-card {
+    @apply mx-2;
+  }
+  
+  /* Mobile search bar */
+  .search-input {
+    @apply px-4 py-4 text-lg;
+  }
+}
+
+/* Tablet responsive adjustments */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .content-grid {
+    @apply grid-cols-2;
+  }
 } 

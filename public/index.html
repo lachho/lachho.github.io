@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-t" />
+    <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
@@ -10,6 +10,24 @@
       content="Resume Analyser Web App"
     />
     <title>Resume Analyser</title>
+    
+    <!-- Legacy Hash URL Redirect Script -->
+    <script>
+      // Redirect old hash-based URLs to clean URLs
+      (function() {
+        const currentUrl = window.location;
+        const hash = currentUrl.hash;
+        
+        // Check if we have a hash-based URL (e.g., /#/about)
+        if (hash && hash.startsWith('#/')) {
+          const cleanPath = hash.slice(1); // Remove the #
+          const newUrl = currentUrl.origin + cleanPath + currentUrl.search;
+          
+          // Replace the current URL without adding to history
+          window.history.replaceState({}, '', newUrl);
+        }
+      })();
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
