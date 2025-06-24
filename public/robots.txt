@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lachho.github.io/sitemap.xml 
