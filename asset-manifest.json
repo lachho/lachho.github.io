@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "./static/css/main.94b0768e.css",
-    "main.js": "./static/js/main.f0029926.js",
-    "index.html": "./index.html",
-    "main.94b0768e.css.map": "./static/css/main.94b0768e.css.map",
-    "main.f0029926.js.map": "./static/js/main.f0029926.js.map"
+    "main.css": "/www.lachlanho.au/static/css/main.94b0768e.css",
+    "main.js": "/www.lachlanho.au/static/js/main.01d7aba9.js",
+    "index.html": "/www.lachlanho.au/index.html",
+    "main.94b0768e.css.map": "/www.lachlanho.au/static/css/main.94b0768e.css.map",
+    "main.01d7aba9.js.map": "/www.lachlanho.au/static/js/main.01d7aba9.js.map"
   },
   "entrypoints": [
     "static/css/main.94b0768e.css",
-    "static/js/main.f0029926.js"
+    "static/js/main.01d7aba9.js"
   ]
 }
