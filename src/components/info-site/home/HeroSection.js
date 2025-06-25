@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 
 const HeroSection = ({ onExploreClick }) => {
   return (
-    <section className="h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-purple-600 text-white flex items-center justify-center w-full pb-20 sm:pb-32">
+    // <section className="h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-purple-600 text-white flex items-center justify-center w-full pb-20 sm:pb-32">
+    <section 
+      className="h-screen bg-cover bg-[center_15%] text-white flex items-center justify-center w-full pb-20 sm:pb-32"
+      style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(/hero.png)` }}
+    >
       <div className="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center">
         <h1 className="text-5xl md:text-7xl font-extrabold mb-6 text-white">
           Career Compass

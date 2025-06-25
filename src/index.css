@@ -125,14 +125,84 @@ li {
 
 .prose ul {
   @apply mb-4 pl-6;
+  list-style: none; /* Remove default bullets */
 }
 
 .prose ol {
   @apply mb-4 pl-6;
+  list-style: none; /* Remove default numbering */
+  counter-reset: list-counter; /* Reset counter for each list */
 }
 
 .prose li {
   @apply mb-2;
+  position: relative;
+}
+
+/* Custom bullet icons for unordered lists */
+.prose ul > li::before {
+  content: "➢"; /* Custom bullet icon */
+  color: #00358b; /* Blue colour for the icon */
+  font-weight: bold;
+  position: absolute;
+  left: -25px;
+  top: 0;
+}
+
+/* Alternative icons for nested lists */
+.prose ul ul > li::before {
+  content: "•"; /* Diamond for second level */
+  color: #280086; /* Indigo colour */
+}
+
+.prose ul ul ul > li::before {
+  content: "◦"; /* Circle for third level */
+  color: #8b5cf6; /* Purple colour */
+}
+
+/* Custom numbering for ordered lists */
+.prose ol > li {
+  counter-increment: list-counter;
+}
+
+.prose ol > li::before {
+  content: counter(list-counter) "."; /* Number with arrow */
+  color: #00307d; /* Blue colour for the numbering */
+  font-weight: bold;
+  position: absolute;
+  left: -20px;
+  top: 0;
+  min-width: 25px;
+}
+
+/* Nested ordered lists with different styles */
+.prose ol ol {
+  counter-reset: list-counter-2;
+}
+
+.prose ol ol > li {
+  counter-increment: list-counter-2;
+}
+
+.prose ol ol > li::before {
+  content: counter(list-counter-2) "."; /* Letters with triangle */
+  color: #6366f1; /* Indigo colour */
+  left: -20px;
+}
+
+/* Third level nested ordered lists */
+.prose ol ol ol {
+  counter-reset: list-counter-3;
+}
+
+.prose ol ol ol > li {
+  counter-increment: list-counter-3;
+}
+
+.prose ol ol ol > li::before {
+  content: counter(list-counter-3, lower-roman); /* Roman numerals with diamond */
+  color: #8b5cf6; /* Purple colour */
+  left: -20px;
 }
 
 .prose blockquote {
@@ -316,6 +386,36 @@ html {
 
 .sidebar-nav::-webkit-scrollbar-thumb:hover {
   background: #a1a1a1;
+}
+
+/* Enhanced sidebar scrollbar for better visibility */
+.sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* Force scrollbar to always be visible when content overflows */
+.sidebar-scroll {
+  overflow-y: scroll !important;
 }
 
 /* Content discovery hub animations */

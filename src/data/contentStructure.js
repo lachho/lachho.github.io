@@ -1,199 +1,164 @@
 // Content structure for the informational website
 export const contentStructure = {
+  'resume-and-cover-letter': {
+    title: 'Resume & Cover Letter',
+    description: 'How to craft a top-tier resume and cover letter to stand out from the crowd.',
+    icon: '📝',
+    articles: [
+      { id: 'resume-crash-course' },
+      { id: 'resume-masterclass-content' },
+      { id: 'resume-masterclass-consolidation' },
+      { id: 'resume-masterclass-formatting' },
+      { id: 'cover-letters' },
+    ]
+  },
+  'job-application-process': {
+    title: 'The Job Application Process',
+    description: 'Navigate the job application process with confidence.',
+    icon: '💻',
+    articles: [
+      { id: 'job-application-process' },
+      { id: 'helpful-resources-and-links' },
+    ]
+  },
+  'interview-preparation': {
+    title: 'Interview Preparation',
+    description: 'Learn how to prepare thoroughly for your interviews to make a memorable impression.',
+    icon: '🎙️',
+    articles: [
+      { id: 'online-assessments' },
+      { id: 'group-assessments' },
+      { id: 'interviews' },
+    ]
+  },
+  'setting-up-for-success': {
+    title: 'Setting up for Success',
+    description: 'How to lay the groundwork to set yourself up for a successful career.',
+    icon: '🚀',
+    articles: [
+      { id: 'general-advice' },
+      { id: 'extracurricular-activities' },
+      { id: 'networking' },
+      { id: 'linkedin' },
+    ]
+  },
+  'university': {
+    title: 'University',
+    description: 'What you need to know about your time at university.',
+    icon: '🎓',
+    articles: [
+      { id: 'industrial-training' },
+      { id: 'academics' },
+    ]
+  },
   'career-guidance': {
     title: 'Career Guidance',
-    description: 'Professional advice for career development and job searching',
-    icon: '🎯',
-    subcategories: {
-      'resume-writing': {
-        title: 'Resume Writing',
-        description: 'Learn how to create compelling resumes',
-        articles: [
-          {
-            id: 'effective-resume-formats',
-            title: 'Effective Resume Formats',
-            summary: 'Discover the best resume formats for different industries and career levels',
-            file: 'career-guidance/resume-writing/effective-resume-formats.md',
-            tags: ['CV Writing', 'format', 'structure', 'beginner']
-          },
-          {
-            id: 'action-verbs-guide',
-            title: 'Power Action Verbs for Resumes',
-            summary: 'Transform your resume with impactful action verbs that grab attention',
-            file: 'career-guidance/resume-writing/action-verbs-guide.md',
-            tags: ['CV Writing', 'writing', 'language', 'impact']
-          },
-          {
-            id: 'quantifying-achievements',
-            title: 'Quantifying Your Achievements',
-            summary: 'Learn how to measure and present your accomplishments effectively',
-            file: 'career-guidance/resume-writing/quantifying-achievements.md',
-            tags: ['CV Writing', 'metrics', 'achievements', 'data']
-          }
-        ]
-      },
-      'interview-preparation': {
-        title: 'Interview Preparation',
-        description: 'Master the art of job interviews',
-        articles: [
-          {
-            id: 'common-interview-questions',
-            title: 'Common Interview Questions & Answers',
-            summary: 'Prepare for the most frequently asked interview questions',
-            file: 'career-guidance/interview-preparation/common-interview-questions.md',
-            tags: ['Interview Tips', 'questions', 'preparation', 'answers']
-          },
-          {
-            id: 'behavioural-interviews',
-            title: 'Mastering Behavioural Interviews',
-            summary: 'Use the STAR method to excel in behavioural interviews',
-            file: 'career-guidance/interview-preparation/behavioural-interviews.md',
-            tags: ['Interview Tips', 'behavioural', 'STAR', 'storytelling']
-          },
-          {
-            id: 'networking-strategies',
-            title: 'Professional Networking Strategies',
-            summary: 'Build meaningful professional relationships that advance your career',
-            file: 'career-guidance/interview-preparation/networking-strategies.md',
-            tags: ['Networking', 'relationships', 'career', 'professional']
-          }
-        ]
-      }
-    }
-  },
-  'industry-insights': {
-    title: 'Industry Insights',
-    description: 'Deep dives into various industry trends and requirements',
-    icon: '🏢',
-    subcategories: {
-      'technology': {
-        title: 'Technology',
-        description: 'Tech industry trends and career advice',
-        articles: [
-          {
-            id: 'tech-skills-2024',
-            title: 'Essential Tech Skills for 2024',
-            summary: 'Stay ahead with the most in-demand technical skills',
-            file: 'industry-insights/technology/tech-skills-2024.md',
-            tags: ['Technology', 'Skills', 'trends', 'programming']
-          },
-          {
-            id: 'remote-work-best-practices',
-            title: 'Remote Work Best Practices',
-            summary: 'Master the art of working effectively from home',
-            file: 'industry-insights/technology/remote-work-best-practices.md',
-            tags: ['Technology', 'remote', 'productivity', 'communication']
-          }
-        ]
-      },
-      'finance': {
-        title: 'Finance',
-        description: 'Financial sector career guidance',
-        articles: [
-          {
-            id: 'finance-career-paths',
-            title: 'Finance Career Paths Explained',
-            summary: 'Explore different career opportunities in the finance industry',
-            file: 'industry-insights/finance/finance-career-paths.md',
-            tags: ['Finance', 'careers', 'pathways', 'banking']
-          },
-          {
-            id: 'fintech-revolution',
-            title: 'The FinTech Revolution: Career Opportunities',
-            summary: 'Discover emerging roles at the intersection of finance and technology',
-            file: 'industry-insights/finance/fintech-revolution.md',
-            tags: ['Finance', 'Technology', 'fintech', 'innovation']
-          }
-        ]
-      }
-    }
-  },
-  'professional-development': {
-    title: 'Professional Development',
-    description: 'Continuous learning and skill enhancement strategies',
-    icon: '📈',
-    subcategories: {
-      'skills-development': {
-        title: 'Skills Development',
-        description: 'Build and enhance your professional skills',
-        articles: [
-          {
-            id: 'soft-skills-importance',
-            title: 'The Importance of Soft Skills',
-            summary: 'Why emotional intelligence and communication matter in your career',
-            file: 'professional-development/skills-development/soft-skills-importance.md',
-            tags: ['Skills', 'soft-skills', 'communication', 'leadership']
-          },
-          {
-            id: 'continuous-learning',
-            title: 'Continuous Learning Strategies',
-            summary: 'Stay relevant in your field through lifelong learning',
-            file: 'professional-development/skills-development/continuous-learning.md',
-            tags: ['Skills', 'learning', 'development', 'growth']
-          },
-          {
-            id: 'networking-for-introverts',
-            title: 'Networking Strategies for Introverts',
-            summary: 'Build professional networks without draining your energy',
-            file: 'professional-development/skills-development/networking-for-introverts.md',
-            tags: ['Networking', 'introverts', 'strategies', 'professional']
-          }
-        ]
-      }
-    }
+    description: 'Get guidance on making informed decisions about where you want to go.',
+    icon: '🧭',
+    articles: [
+      { id: 'career-progression' },
+      { id: 'career-options-and-disciplines' },
+      { id: 'thinking-about-the-future' },
+      { id: 'salary-expectations' },
+    ]
   }
 };
 
+// Featured Articles - manually curated list
+// Add/remove articles here to control which ones appear in the featured section
+export const featuredArticles = [
+  { categoryKey: 'setting-up-for-success', articleId: 'general-advice' },
+  { categoryKey: 'resume-and-cover-letter', articleId: 'resume-masterclass-content' },
+  { categoryKey: 'job-application-process', articleId: 'helpful-resources-and-links' },
+];
+
+const parseFrontmatter = (text) => {
+  const meta = {};
+  const match = text.match(/---\n([\s\S]+?)\n---/);
+  if (match) {
+    const frontMatter = match[1];
+    frontMatter.split('\n').forEach(line => {
+      const parts = line.split(':');
+      if (parts.length > 1) {
+        const key = parts[0].trim();
+        const value = parts.slice(1).join(':').trim();
+        // Handle tags specially as they are an array
+        if (key === 'tags') {
+            // Assuming tags are in the format: ["tag1", "tag2"]
+            try {
+                meta[key] = JSON.parse(value);
+            } catch (e) {
+                console.error('Error parsing tags:', e);
+                meta[key] = [];
+            }
+        } else {
+            // Remove quotes from other string values
+            meta[key] = value.replace(/^"(.*)"$/, '$1').replace(/^'(.*)'$/, '$1');
+        }
+      }
+    });
+  }
+  return meta;
+};
+
+
+export const getArticleMetaData = async (categoryKey, articleId) => {
+    try {
+        const response = await fetch(`/content/${categoryKey}/${articleId}.md`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const text = await response.text();
+        const metadata = parseFrontmatter(text);
+        return metadata;
+    } catch (error) {
+        console.error(`Error fetching article content for ${articleId}:`, error);
+        return {};
+    }
+};
+
+
 // Flatten all articles for search functionality
-export const getAllArticles = () => {
+export const getAllArticles = async () => {
   const articles = [];
   
-  Object.entries(contentStructure).forEach(([categoryKey, category]) => {
-    Object.entries(category.subcategories).forEach(([subcategoryKey, subcategory]) => {
-      subcategory.articles.forEach(article => {
+  for (const [categoryKey, category] of Object.entries(contentStructure)) {
+    if (category.articles) {
+      for (const articleStub of category.articles) {
+        const metadata = await getArticleMetaData(categoryKey, articleStub.id);
         articles.push({
-          ...article,
+          id: articleStub.id,
+          ...metadata,
           category: categoryKey,
           categoryTitle: category.title,
-          subcategory: subcategoryKey,
-          subcategoryTitle: subcategory.title,
-          path: `/articles/${categoryKey}/${subcategoryKey}/${article.id}`
+          path: `/articles/${categoryKey}/${articleStub.id}`
         });
-      });
-    });
-  });
+      }
+    }
+  }
   
   return articles;
 };
 
 // Get breadcrumb navigation for a content path
-export const getBreadcrumbs = (categoryKey, subcategoryKey, articleId) => {
+export const getBreadcrumbs = (categoryKey, articleId, articleTitle) => {
   const breadcrumbs = [
+    { title: 'Home', path: '/' },
     { title: 'Articles', path: '/articles' }
   ];
   
   if (categoryKey && contentStructure[categoryKey]) {
+    const category = contentStructure[categoryKey];
     breadcrumbs.push({
-      title: contentStructure[categoryKey].title,
+      title: category.title,
       path: `/articles/${categoryKey}`
     });
     
-    if (subcategoryKey && contentStructure[categoryKey].subcategories[subcategoryKey]) {
+    if (articleId && articleTitle) {
       breadcrumbs.push({
-        title: contentStructure[categoryKey].subcategories[subcategoryKey].title,
-        path: `/articles/${categoryKey}/${subcategoryKey}`
+        title: articleTitle,
+        path: `/articles/${categoryKey}/${articleId}`
       });
-      
-      if (articleId) {
-        const article = contentStructure[categoryKey].subcategories[subcategoryKey].articles
-          .find(a => a.id === articleId);
-        if (article) {
-          breadcrumbs.push({
-            title: article.title,
-            path: `/articles/${categoryKey}/${subcategoryKey}/${articleId}`
-          });
-        }
-      }
     }
   }
   
@@ -201,17 +166,28 @@ export const getBreadcrumbs = (categoryKey, subcategoryKey, articleId) => {
 };
 
 // Add featured articles functionality
-export const getFeaturedArticles = () => {
-  const allArticles = getAllArticles();
-  // For now, return the first 3 articles as featured
-  // In the future, you could add a 'featured' property to articles
-  return allArticles.slice(0, 3);
+export const getFeaturedArticles = async () => {
+  const articles = [];
+  
+  for (const featured of featuredArticles) {
+    try {
+      const { categoryKey, articleId } = featured;
+      const category = contentStructure[categoryKey];
+      
+      if (category && category.articles.some(article => article.id === articleId)) {
+        const metadata = await getArticleMetaData(categoryKey, articleId);
+        articles.push({
+          id: articleId,
+          ...metadata,
+          category: categoryKey,
+          categoryTitle: category.title,
+          path: `/articles/${categoryKey}/${articleId}`
+        });
+      }
+    } catch (error) {
+      console.error(`Error loading featured article ${featured.categoryKey}/${featured.articleId}:`, error);
+    }
+  }
+  
+  return articles;
 };
-
-// Add recent articles functionality (sorted by a date field when available)
-export const getRecentArticles = (limit = 6) => {
-  const allArticles = getAllArticles();
-  // For now, return the first articles as "recent"
-  // In the future, you could add a 'datePublished' field and sort by it
-  return allArticles.slice(0, limit);
-}; 

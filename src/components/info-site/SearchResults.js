@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { getAllArticles } from '../../data/contentStructure';
 import Breadcrumb from './navigation/Breadcrumb';
-import Footer from '../resume-analyser/Footer';
+import Footer from './Footer';
 
 const SearchResults = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -21,25 +21,20 @@ const SearchResults = () => {
 
   const performSearch = async (term) => {
     setLoading(true);
-    
-    // Simulate loading delay for better UX
     await new Promise(resolve => setTimeout(resolve, 300));
-    
-    const allArticles = getAllArticles();
+    const allArticles = await getAllArticles();
     const searchResults = allArticles.filter(article => 
-      article.title.toLowerCase().includes(term.toLowerCase()) ||
-      article.summary.toLowerCase().includes(term.toLowerCase()) ||
-      article.tags.some(tag => tag.toLowerCase().includes(term.toLowerCase())) ||
-      article.categoryTitle.toLowerCase().includes(term.toLowerCase())
+      (article.title && article.title.toLowerCase().includes(term.toLowerCase())) ||
+      (article.summary && article.summary.toLowerCase().includes(term.toLowerCase())) ||
+      (article.tags && article.tags.some(tag => tag.toLowerCase().includes(term.toLowerCase()))) ||
+      (article.categoryTitle && article.categoryTitle.toLowerCase().includes(term.toLowerCase()))
     );
-
     // Sort results by relevance (title matches first, then content matches)
     const sortedResults = searchResults.sort((a, b) => {
-      const aInTitle = a.title.toLowerCase().includes(term.toLowerCase()) ? 1 : 0;
-      const bInTitle = b.title.toLowerCase().includes(term.toLowerCase()) ? 1 : 0;
+      const aInTitle = a.title && a.title.toLowerCase().includes(term.toLowerCase()) ? 1 : 0;
+      const bInTitle = b.title && b.title.toLowerCase().includes(term.toLowerCase()) ? 1 : 0;
       return bInTitle - aInTitle;
     });
-
     setResults(sortedResults);
     setLoading(false);
   };
@@ -53,10 +48,8 @@ const SearchResults = () => {
 
   const highlightText = (text, term) => {
     if (!term) return text;
-    
     const regex = new RegExp(`(${term})`, 'gi');
     const parts = text.split(regex);
-    
     return parts.map((part, index) => 
       regex.test(part) ? 
         <mark key={index} className="search-highlight">{part}</mark> : 
@@ -75,11 +68,9 @@ const SearchResults = () => {
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Breadcrumb breadcrumbs={breadcrumbs} />
-        
         {/* Search Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-6">Search Results</h1>
-          
           {/* Search Form */}
           <form onSubmit={handleSearch} className="mb-6">
             <div className="flex">
@@ -98,14 +89,12 @@ const SearchResults = () => {
               </button>
             </div>
           </form>
-
           {query && (
             <p className="text-gray-600">
               {loading ? 'Searching...' : `Found ${results.length} results for "${query}"`}
             </p>
           )}
         </div>
-
         {/* Loading State */}
         {loading && (
           <div className="text-center py-12">
@@ -113,7 +102,6 @@ const SearchResults = () => {
             <p className="text-gray-600">Searching articles...</p>
           </div>
         )}
-
         {/* Search Results */}
         {!loading && query && (
           <div className="space-y-6">
@@ -125,7 +113,7 @@ const SearchResults = () => {
                       {article.categoryTitle}
                     </span>
                     <div className="flex flex-wrap gap-2">
-                      {article.tags.slice(0, 3).map((tag) => (
+                      {article.tags && article.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
                           className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded-full"
@@ -135,7 +123,6 @@ const SearchResults = () => {
                       ))}
                     </div>
                   </div>
-                  
                   <h2 className="text-xl font-bold text-gray-900 mb-3">
                     <Link 
                       to={article.path}
@@ -144,11 +131,9 @@ const SearchResults = () => {
                       {highlightText(article.title, query)}
                     </Link>
                   </h2>
-                  
                   <p className="text-gray-600 mb-4">
                     {highlightText(article.summary, query)}
                   </p>
-                  
                   <Link
                     to={article.path}
                     className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition-colours"
@@ -167,7 +152,6 @@ const SearchResults = () => {
                 <p className="text-gray-600 mb-6">
                   We couldn't find any articles matching "{query}". Try different keywords or browse our categories.
                 </p>
-                
                 {/* Suggested Searches */}
                 <div className="mt-8">
                   <h4 className="text-lg font-semibold text-gray-800 mb-4">Try searching for:</h4>
@@ -186,7 +170,6 @@ const SearchResults = () => {
                     ))}
                   </div>
                 </div>
-                
                 <Link
                   to="/"
                   className="inline-block mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colours"
@@ -197,7 +180,6 @@ const SearchResults = () => {
             )}
           </div>
         )}
-
         {/* Default State - No Search Query */}
         {!query && !loading && (
           <div className="text-center py-12">
@@ -206,7 +188,6 @@ const SearchResults = () => {
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
               Find articles, tips, and career advice by searching for keywords, topics, or skills.
             </p>
-            
             {/* Popular Searches */}
             <div className="mb-8">
               <h3 className="text-lg font-semibold text-gray-800 mb-4">Popular Searches:</h3>
@@ -225,7 +206,6 @@ const SearchResults = () => {
                 ))}
               </div>
             </div>
-            
             <Link
               to="/"
               className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colours"
@@ -235,7 +215,6 @@ const SearchResults = () => {
           </div>
         )}
       </div>
-      
       <Footer />
     </div>
   );

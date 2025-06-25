@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FileUpload from './FileUpload';
 import AnalysisDashboard from './AnalysisDashboard';
-import Footer from './Footer';
+import Footer from '../info-site/Footer';
 import ExportButtons from './ExportButtons';
 import { parseFile } from '../../utils/fileParser';
 import { analyseResume } from '../../utils/resumeAnalyser';

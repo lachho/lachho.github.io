@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import Footer from '../resume-analyser/Footer';
+import React from 'react';
+import Footer from './Footer';
 import HeroSection from './home/HeroSection';
 import MainContent from './home/MainContent';
 
