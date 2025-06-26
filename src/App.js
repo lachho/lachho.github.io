@@ -14,9 +14,12 @@ import AboutPage from './components/info-site/AboutPage';
 function Layout() {
   const location = useLocation();
   
+  // Safely get pathname
+  const currentPath = location?.pathname || '/';
+  
   // Determine if we should show the sidebar (for content pages)
-  const shouldShowSidebar = location.pathname.startsWith('/articles') || 
-                           location.pathname === '/search';
+  const shouldShowSidebar = currentPath.startsWith('/articles') || 
+                           currentPath === '/search';
   
   return (
     <div className="min-h-screen">

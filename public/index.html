@@ -11,20 +11,30 @@
     />
     <title>Resume Analyser</title>
     
-    <!-- Legacy Hash URL Redirect Script -->
+    <!-- GitHub Pages SPA and Legacy Hash URL Redirect Script -->
     <script>
-      // Redirect old hash-based URLs to clean URLs
+      // Handle GitHub Pages SPA routing and legacy hash URLs
       (function() {
-        const currentUrl = window.location;
-        const hash = currentUrl.hash;
-        
-        // Check if we have a hash-based URL (e.g., /#/about)
-        if (hash && hash.startsWith('#/')) {
-          const cleanPath = hash.slice(1); // Remove the #
-          const newUrl = currentUrl.origin + cleanPath + currentUrl.search;
+        try {
+          const currentUrl = window.location;
           
-          // Replace the current URL without adding to history
-          window.history.replaceState({}, '', newUrl);
+          // Handle GitHub Pages SPA redirect from 404.html
+          if (currentUrl.search && typeof currentUrl.search === 'string' && currentUrl.search.startsWith('?/') && currentUrl.search.length > 2) {
+            const route = currentUrl.search.slice(2).replace(/&/g, '?').replace(/~and~/g, '&');
+            window.history.replaceState({}, '', currentUrl.origin + '/' + route + (currentUrl.hash || ''));
+          }
+          
+          // Handle legacy hash-based URLs (e.g., /#/about)
+          const hash = currentUrl.hash;
+          if (hash && typeof hash === 'string' && hash.startsWith('#/') && hash.length > 2) {
+            const cleanPath = hash.slice(1); // Remove the #
+            const newUrl = currentUrl.origin + cleanPath + (currentUrl.search || '');
+            
+            // Replace the current URL without adding to history
+            window.history.replaceState({}, '', newUrl);
+          }
+        } catch (error) {
+          console.error('URL processing error:', error);
         }
       })();
     </script>

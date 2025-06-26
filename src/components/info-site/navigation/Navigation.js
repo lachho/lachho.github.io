@@ -10,10 +10,13 @@ const Navigation = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Safely get pathname
+  const currentPath = location?.pathname || '/';
+
   // Close menus on navigation
   useEffect(() => {
     setIsMenuOpen(false);
-  }, [location.pathname]);
+  }, [currentPath]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -52,7 +55,7 @@ const Navigation = () => {
               <Link
                 to="/"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colours ${
-                  location.pathname === '/'
+                  currentPath === '/'
                     ? 'text-blue-600 bg-blue-50'
                     : 'text-gray-700 hover:text-blue-600 hover:bg-white'
                 }`}
@@ -65,7 +68,7 @@ const Navigation = () => {
                 <Link
                   to="/articles"
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colours flex items-center ${
-                    location.pathname.startsWith('/articles')
+                    currentPath.startsWith('/articles')
                       ? 'text-blue-600 bg-blue-50'
                       : 'text-gray-700 hover:text-blue-600 hover:bg-white'
                   }`}
@@ -96,7 +99,7 @@ const Navigation = () => {
               <Link
                 to="/about"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colours ${
-                  location.pathname === '/about'
+                  currentPath === '/about'
                     ? 'text-blue-600 bg-blue-50 '
                     : 'text-gray-700 hover:text-blue-600 hover:bg-white'
                 }`}
@@ -106,7 +109,7 @@ const Navigation = () => {
               <Link
                 to="/resume-analyser"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colours ${
-                  location.pathname === '/resume-analyser'
+                  currentPath === '/resume-analyser'
                     ? 'text-blue-600 bg-blue-50'
                     : 'text-gray-700 hover:text-blue-600 hover:bg-white'
                 }`}
@@ -188,7 +191,7 @@ const Navigation = () => {
               <Link
                 to="/"
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colours ${
-                  location.pathname === '/'
+                  currentPath === '/'
                     ? 'text-blue-600 bg-blue-50'
                     : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                 }`}
@@ -200,7 +203,7 @@ const Navigation = () => {
               <Link
                 to="/articles"
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colours ${
-                  location.pathname.startsWith('/articles')
+                  currentPath.startsWith('/articles')
                     ? 'text-blue-600 bg-blue-50'
                     : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                 }`}
@@ -219,7 +222,7 @@ const Navigation = () => {
                     key={categoryKey}
                     to={`/articles/${categoryKey}`}
                     className={`flex items-center px-6 py-2 rounded-md text-base font-medium transition-colours ${
-                      location.pathname.startsWith(`/articles/${categoryKey}`)
+                      currentPath.startsWith(`/articles/${categoryKey}`)
                         ? 'text-blue-600 bg-blue-50'
                         : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                     }`}
@@ -234,7 +237,7 @@ const Navigation = () => {
               <Link
                 to="/about"
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colours ${
-                  location.pathname === '/about'
+                  currentPath === '/about'
                     ? 'text-blue-600 bg-blue-50'
                     : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                 }`}
@@ -245,7 +248,7 @@ const Navigation = () => {
               <Link
                 to="/resume-analyser"
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colours ${
-                  location.pathname === '/resume-analyser'
+                  currentPath === '/resume-analyser'
                     ? 'text-blue-600 bg-blue-50'
                     : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                 }`}

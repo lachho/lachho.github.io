@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Resume Analyser</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script takes the current url and converts the path and query
+      // string into just a query string, and then redirects the browser
+      // to the new url with only a query string and hash fragment,
+      // e.g., https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
+      // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
+      // Note: this 404.html file must be at least 512 bytes for it to work
+      // with Internet Explorer (it is currently > 512 bytes)
+
+      // If you're creating a Project Pages site and NOT using a custom domain,
+      // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
+      // This way the code will only replace the route part and not the real directory.
+      // For example: https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
+      // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
+      // Otherwise, leave pathSegmentsToKeep as 0.
+      var pathSegmentsToKeep = 0;
+
+      var l = window.location;
+      
+      // Safely handle pathname and search with proper checks
+      var pathname = l.pathname || '/';
+      var search = l.search || '';
+      var hash = l.hash || '';
+      
+      // Ensure pathname is a string and has content before slicing
+      var pathParts = pathname.split('/').filter(function(part) { return part !== ''; });
+      var basePath = pathParts.slice(0, pathSegmentsToKeep).join('/');
+      var routePath = pathParts.slice(pathSegmentsToKeep).join('/');
+      
+      // Safely handle search parameter
+      var searchParam = search && search.length > 1 ? search.slice(1).replace(/&/g, '~and~') : '';
+      
+      var newUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        '/' + basePath + (basePath ? '/' : '') + '?/' + routePath +
+        (searchParam ? '&' + searchParam : '') + hash;
+      
+      l.replace(newUrl);
+    </script>
+  </head>
+  <body>
+  </body>
+</html> 

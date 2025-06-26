@@ -102,18 +102,43 @@ const parseFrontmatter = (text) => {
 };
 
 
-export const getArticleMetaData = async (categoryKey, articleId) => {
+export const getArticleMetaData = async (categoryKey, articleId, includeContent = false) => {
     try {
-        const response = await fetch(`/content/${categoryKey}/${articleId}.md`);
+        const url = `/content/${categoryKey}/${articleId}.md`;
+        console.log('Fetching metadata from:', url);
+        
+        const response = await fetch(url);
+        console.log('Response status:', response.status, 'OK:', response.ok);
+        console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+        
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
         const text = await response.text();
+        console.log('Fetched text length:', text.length);
         const metadata = parseFrontmatter(text);
+        console.log('Parsed metadata:', metadata);
+        
+        if (includeContent) {
+            // Strip YAML frontmatter using regex to get clean content
+            const content = text.replace(/^---[\s\S]*?---/, '').trim();
+            return { ...metadata, content };
+        }
+        
         return metadata;
     } catch (error) {
-        console.error(`Error fetching article content for ${articleId}:`, error);
-        return {};
+        console.error(`Error fetching article content for ${categoryKey}/${articleId}:`, error);
+        const fallback = {
+            title: articleId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+            summary: 'Content temporarily unavailable',
+            tags: []
+        };
+        
+        if (includeContent) {
+            fallback.content = 'Content temporarily unavailable.';
+        }
+        
+        return fallback;
     }
 };
 

@@ -7,6 +7,9 @@ const SidebarNavigation = () => {
   const [articleTitles, setArticleTitles] = useState({});
   const location = useLocation();
 
+  // Safely get pathname
+  const currentPath = location?.pathname || '/';
+
   // Fetch article titles
   useEffect(() => {
     const fetchTitles = async () => {
@@ -25,7 +28,7 @@ const SidebarNavigation = () => {
 
   // Auto-expand categories based on current path
   useEffect(() => {
-    const pathParts = location.pathname.split('/').filter(part => part !== '');
+    const pathParts = currentPath.split('/').filter(part => part !== '');
     
     if (pathParts[0] === 'articles' && pathParts[1]) {
       const categoryKey = pathParts[1];
@@ -36,7 +39,7 @@ const SidebarNavigation = () => {
         [categoryKey]: true
       }));
     }
-  }, [location.pathname]);
+  }, [currentPath]);
 
   const toggleCategory = (categoryKey) => {
     setExpandedCategories(prev => ({
@@ -46,12 +49,12 @@ const SidebarNavigation = () => {
   };
 
   const isCurrentPage = (path) => {
-    return location.pathname === path;
+    return currentPath === path;
   };
 
   return (
-    <div className="w-80 bg-white shadow-lg border-r border-gray-200 h-screen overflow-y-scroll fixed left-0 top-16 z-40 hidden lg:block sidebar-scroll">
-      <div className="p-4">
+    <div className="w-80 bg-white shadow-lg border-r border-gray-200 fixed left-0 top-16 z-40 hidden lg:block sidebar-scroll" style={{height: 'calc(100vh - 4rem)'}}>
+      <div className="p-4 h-full overflow-y-auto">
         <h2 className="text-lg font-bold text-gray-800 mb-4">Site Navigation</h2>
         
         {/* Home Link */}
@@ -107,15 +110,9 @@ const SidebarNavigation = () => {
 
         <hr className="mb-4" />
         
-        <h3 className="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wide">Content Library</h3>
-
-        {/* Logo and Title */}
-        <div className="p-6 border-b border-gray-200">
-          <Link to="/articles" className="block">
-            <h2 className="text-xl font-bold text-gray-800">Article Library</h2>
-            <p className="text-sm text-gray-600 mt-1">Browse by category</p>
-          </Link>
-        </div>
+        <h3 className="text-sm font-semibold text-gray-600 mb-3 uppercase tracking-wide">
+          Content Library ({Object.keys(contentStructure).length} categories)
+        </h3>
 
         {/* Content Categories */}
         {Object.entries(contentStructure).map(([categoryKey, category]) => {
@@ -141,7 +138,7 @@ const SidebarNavigation = () => {
                 <Link
                   to={`/articles/${categoryKey}`}
                   className={`flex items-center justify-between px-4 py-3 text-sm font-medium transition-colours ${
-                    location.pathname.startsWith(`/articles/${categoryKey}`)
+                    currentPath.startsWith(`/articles/${categoryKey}`)
                       ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-600'
                       : 'text-gray-700 hover:bg-gray-50'
                   }`}
