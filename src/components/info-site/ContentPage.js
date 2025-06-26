@@ -2,15 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { marked } from 'marked';
 import { contentStructure, getBreadcrumbs, getArticleMetaData } from '../../data/contentStructure';
-
-// Import new components
-import LoadingSpinner from './common/LoadingSpinner';
-import ErrorBoundary from './common/ErrorBoundary';
-import ErrorDisplay from './common/ErrorDisplay';
+import { LoadingSpinner, ErrorBoundary, ErrorDisplay } from './common';
+import { ArticleLibraryView, CategoryView, ArticleView } from './content';
 import Breadcrumb from './navigation/Breadcrumb';
-import ArticleLibraryView from './content/ArticleLibraryView';
-import CategoryView from './content/CategoryView';
-import ArticleView from './content/ArticleView';
 
 const ContentPage = () => {
   const { '*': fullPath } = useParams();
