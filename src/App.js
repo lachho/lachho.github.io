@@ -1,74 +1,30 @@
-import React from 'react';
-import { createBrowserRouter, RouterProvider, Outlet, useLocation } from 'react-router-dom';
-import MainPage from './components/resume-analyser/MainPage';
-import JobDescription from './components/resume-analyser/JobDescription';
+import React, { useEffect } from 'react';
 
-// Import info site components
-import Navigation from './components/info-site/navigation/Navigation';
-import SidebarNavigation from './components/info-site/navigation/SidebarNavigation';
-import InfoHomePage from './components/info-site/InfoHomePage';
-import ContentPage from './components/info-site/ContentPage';
-import SearchResults from './components/info-site/SearchResults';
-import AboutPage from './components/info-site/AboutPage';
+function App() {
+  useEffect(() => {
+    // Redirect to the new site
+    window.location.replace('https://blog.cevsoc.com');
+  }, []);
 
-function Layout() {
-  const location = useLocation();
-  
-  // Safely get pathname
-  const currentPath = location?.pathname || '/';
-  
-  // Determine if we should show the sidebar (for content pages)
-  const shouldShowSidebar = currentPath.startsWith('/articles') || 
-                           currentPath === '/search';
-  
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      {shouldShowSidebar && <SidebarNavigation />}
-      
-      {/* Updated layout to centre content properly */}
-      <div className={`pt-16 ${shouldShowSidebar ? 'lg:ml-80' : ''}`}>
-        <Outlet />
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="text-center p-8">
+        <h1 className="text-2xl font-bold mb-4">Redirecting...</h1>
+        <p className="text-gray-600 mb-4">
+          This site has moved to{' '}
+          <a 
+            href="https://blog.cevsoc.com" 
+            className="text-blue-600 hover:underline"
+          >
+            blog.cevsoc.com
+          </a>
+        </p>
+        <p className="text-sm text-gray-500">
+          If you are not automatically redirected, please click the link above.
+        </p>
       </div>
     </div>
   );
-}
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <InfoHomePage />
-      },
-      {
-        path: "about",
-        element: <AboutPage />
-      },
-      {
-        path: "resume-analyser",
-        element: <MainPage />
-      },
-      {
-        path: "job-description",
-        element: <JobDescription />
-      },
-      {
-        path: "search",
-        element: <SearchResults />
-      },
-      {
-        path: "articles/*",
-        element: <ContentPage />
-      }
-    ]
-  }
-]);
-
-function App() {
-  return <RouterProvider router={router} />;
 }
 
 export default App; 

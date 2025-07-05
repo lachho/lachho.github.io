@@ -5,38 +5,17 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    <meta http-equiv="refresh" content="0; url=https://blog.cevsoc.com" />
     <meta
       name="description"
-      content="Resume Analyser Web App"
+      content="This site has moved to blog.cevsoc.com"
     />
-    <title>Resume Analyser</title>
+    <title>Redirecting to blog.cevsoc.com</title>
     
     <!-- GitHub Pages SPA and Legacy Hash URL Redirect Script -->
     <script>
-      // Handle GitHub Pages SPA routing and legacy hash URLs
-      (function() {
-        try {
-          const currentUrl = window.location;
-          
-          // Handle GitHub Pages SPA redirect from 404.html
-          if (currentUrl.search && typeof currentUrl.search === 'string' && currentUrl.search.startsWith('?/') && currentUrl.search.length > 2) {
-            const route = currentUrl.search.slice(2).replace(/&/g, '?').replace(/~and~/g, '&');
-            window.history.replaceState({}, '', currentUrl.origin + '/' + route + (currentUrl.hash || ''));
-          }
-          
-          // Handle legacy hash-based URLs (e.g., /#/about)
-          const hash = currentUrl.hash;
-          if (hash && typeof hash === 'string' && hash.startsWith('#/') && hash.length > 2) {
-            const cleanPath = hash.slice(1); // Remove the #
-            const newUrl = currentUrl.origin + cleanPath + (currentUrl.search || '');
-            
-            // Replace the current URL without adding to history
-            window.history.replaceState({}, '', newUrl);
-          }
-        } catch (error) {
-          console.error('URL processing error:', error);
-        }
-      })();
+      // Immediate redirect - highest priority
+      window.location.replace('https://blog.cevsoc.com');
     </script>
   </head>
   <body>
